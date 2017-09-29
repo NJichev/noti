@@ -1,9 +1,17 @@
 defmodule Noti.Notifications do
+  #TODO: Later on move back NotifySend here, and instead set
+  #the parser module as an option. Also implement notifications for macOS.
   @valid_options [:urgency, :expire_time, :app_name, :icon, :category]
   @valid_urgencies [:low, :normal, :critical]
 
+  @moduledoc """
+  This module takes care of parsing the valid options.
+  """
+
+
   @doc """
-  `send` parses the options and passes them in to `notify-send`.
+  `send` parses the options and passes them in to NotifySend module(by default).
+  You can change the module that handles the binary using the Application interface.
   """
   def send(message, options) do
     parsed = parse_options(options)

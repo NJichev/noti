@@ -1,21 +1,36 @@
 # Noti
 
-**TODO: Add description**
+A module for linux desktop notifications.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `noti` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `noti` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [
-    {:noti, "~> 0.1.0"}
-  ]
+  [{:noti, "~> 0.1.0", only: :dev}]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/noti](https://hexdocs.pm/noti).
+## Usage
+
+Simply give the message you want to notify with.
+
+```elixir
+iex> Noti.with("Hello World")
+:ok
+```
+
+This will send a message to the linux notification server.
+
+Make sure that you can use `notify-send` and that it's in the `$PATH`.
+
+## Contributing
+  * Star it.
+  * Share it.
+  * Found an issue? - Sumbit an issue.
+  * Need a feature?
+    * Fork it.
+    * Pull-request with details why you need this.
+    * Profit!
 

@@ -24,6 +24,21 @@ defmodule Noti do
   It takes in two arguments, the first being a string for a message
   and the second being a keyword list for options.
 
+  Body text may contain markup. The markup is XML-based, and consists of
+  a small subset of HTML along with a few additional tags.
+  The following tags should be supported by the notification server.
+  Though it is optional, it is recommended.
+  Notification servers that do not support these tags should filter them out.
+
+  Some examples:
+
+  1. <b> ... </b> - Bold
+  2. <i> ... </i> - Italic
+  3. <u> ... </u> - Underline
+  4. <a href="..."> ... </a> - Hyperlink
+  5. <img src="..." alt="..."/> - Image
+
+  [Directly taken from notification specification, you can read more here.](https://developer.gnome.org/notification-spec/)
   ## Examples
 
       iex> Noti.with("<b>Hello</b>")
