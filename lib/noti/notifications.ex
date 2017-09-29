@@ -7,7 +7,7 @@ defmodule Noti.Notifications do
   """
   def send(message, options) do
     parsed = parse_options(options)
-    notify_with(message, parsed)
+    notify().send([message | parsed])
     :ok
   end
 
@@ -18,15 +18,11 @@ defmodule Noti.Notifications do
   end
 
   defp notify do
-    Application.get_env(:noti, :command, "notify-send")
+    Application.get_env(:noti, :command, Noti.NotifySend)
   end
 
   defp to_line_option({option, value}) do
       "--#{option}=#{value}"
-  end
-
-  defp notify_with(message, options) do
-    System.cmd(notify(), [message | options])
   end
 
   defp validate(opt = {:urgency, x}) when x in @valid_urgencies, do: opt

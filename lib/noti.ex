@@ -6,7 +6,7 @@ defmodule Noti do
 
   ## Examples
 
-      iex> Noti.with(message, options)
+      iex> Noti.with("Hello World!")
       :ok
 
   ## Possible Options:
